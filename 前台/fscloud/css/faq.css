@@ -1,0 +1,174 @@
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        .tl-faqs {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .tpm-section__hd {
+            text-align: center;
+            padding-top: 60px;
+        }
+        .tpm-section__title {
+            font-size: 32px;
+            margin: 0;
+            font-weight: 500;
+        }
+        .view-column {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .tl-tabs__list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+            border-bottom: 1px solid #e6e6e6;
+            justify-content: center;
+        }
+        .tl-tabs__item {
+            padding: 0 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tl-tabs__item:hover .tl-tabs__item-cont {
+            color: #0052d9;
+        }
+        .tl-tabs__item-cont {
+            padding: 16px 0;
+            color: #666;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .tl-tabs__item-cont.is-active {
+            color: #0052d9;
+            border-bottom: 2px solid #0052d9;
+            position: relative;
+            bottom: -1px;
+        }
+        .tl-tabs__panel {
+            transition: opacity 0.45s, transform 0.45s;
+            transform-origin: center center;
+            flex-shrink: 0;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+        .tl-tabs__panel.fade-in {
+            animation-name: fadeIn;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tpm-faq__item {
+            border: none;
+            border-radius: 0;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        .tpm-faq__item.is-open {
+            border-radius: 0;
+            border: none;
+            overflow: visible;
+            position: relative;
+            background-color: #f5f7fa;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+        .tpm-faq__item.is-open .tpm-faq__item-hd {
+            background-color: #f5f7fa;
+            border-bottom: none;
+        }
+        .tpm-faq__item-hd {
+            padding: 12px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 0;
+        }
+        .tpm-faq__item-title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+            color: #333;
+        }
+        .tpm-faq__item-icon {
+            width: 16px;
+            height: 16px;
+            position: relative;
+        }
+        .tpm-faq__item-icon:before, 
+        .tpm-faq__item-icon:after {
+            content: '';
+            position: absolute;
+            background-color: #bbb;
+        }
+        .tpm-faq__item-icon:before {
+            width: 2px;
+            height: 10px;
+            top: 3px;
+            left: 7px;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+        }
+        .tpm-faq__item-icon:after {
+            width: 10px;
+            height: 2px;
+            top: 7px;
+            left: 3px;
+            transition: transform 0.4s ease;
+        }
+        .tpm-faq__item.is-open .tpm-faq__item-icon:before {
+            transform: rotate(90deg);
+            opacity: 0;
+        }
+        .tpm-faq__item.is-open .tpm-faq__item-icon:after {
+            transform: rotate(180deg);
+        }
+        .tpm-faq__item-bd {
+            padding: 0 24px;
+            display: block;
+            background-color: #f5f7fa;
+            border-top: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+        .tpm-faq__item.is-open .tpm-faq__item-bd {
+            max-height: 500px;
+            padding: 0 24px 20px;
+            opacity: 1;
+            transform: none;
+        }
+        .tpm-faq__item.is-open .tpm-faq__item-hd::after {
+            content: none;
+        }
+        .ts-link {
+            color: #0052d9;
+            text-decoration: none;
+        }
+        .ts-link:hover {
+            text-decoration: underline;
+        }
+        .ts-p {
+            line-height: 1.6;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        .text-center {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 60px;
+        }

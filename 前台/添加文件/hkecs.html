@@ -1,0 +1,91 @@
+{include file="common/header"}
+<link rel="stylesheet" type="text/css"
+      href="{$css}/static/css/customproducts.css?{$www.version}"/>
+{present name="banner"}
+<section
+        class="globalBanner {$banner['position']?'centered':'leftSide'} {$banner['theme']|default='white'}">
+    <div class="comp_container comp_container_auto comp_container_100"
+    >
+        <div class="pagebanner-relative">
+            <div class="pagebanner center-content">
+                <div class="pagebanner-text ">
+                    {if $banner.title}
+                    <h1 class="pagebanner-title ">{$banner.title}</h1>
+                    {/if}
+                    {if $banner.describe}
+                    <p class="pagebanner-description">{$banner.describe}</p>
+                    {/if}
+                    <div class="pagebanner-button">
+                        <a href="{$banner.cart}"
+                           target="_blank"
+                           class="Button fancy-button bg-gradient"><span>立即购买
+                        </span>
+                        </a>
+                        {if $banner.button}
+                        {foreach $banner.button as $key => $vo}
+                        {if $vo.buttonName && $vo.hidden}
+                        <a href="{$vo.url|default=$www.ContactUs}"
+                           target="_blank"
+                           class="Button Buttoncart {if !$vo.colorv} {if $vo.buttonStyle} darkColor {else} lightColor {/if}{/if}"
+                           style="background: {$vo.colorv}"
+                        ><span>{$vo.buttonName}</span></a>
+                        {/if}
+                        {/foreach}
+                        {else}
+                        <a href="{$url.home}"
+                           target="_blank"
+                           class="Button fancy-button bg-gradient"><span>产品控制台
+                        </span>
+                        </a>
+                        {/if}
+                    </div>
+                    <div class="pagebanner-html">
+                        {$banner.html|raw}
+                    </div>
+                </div>
+            </div>
+            {if $banner.banner_mini && $banner.banner_mini_hid}
+            <div class="bg_mini">
+                <img src="{$banner.banner_mini}" alt="{$banner.title}">
+            </div>
+            {/if}
+        </div>
+    </div>
+</section>
+{/present}
+<section class="et-container container_bg1">
+    <div class="comp_container comp_container_auto overflow_tab">
+        <div class="et-hero-tabs">
+            <ul class="et-hero-tabs-container">
+                <li class="et-hero-tab active">
+                    <a>产品优势</a>
+                </li>
+                <li class="et-hero-tab">
+                    <a>产品功能</a>
+                </li>
+                <li class="et-hero-tab">
+                    <a>应用场景</a>
+                </li>
+                <li class="et-hero-tab">
+                    <a>常见问题</a>
+                </li>
+                <span class="et-hero-tab-slider"></span>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<main class="et-main">
+
+{include file="fscloud/hk/1"}
+
+{include file="fscloud/hk/2"}
+ 
+{include file="fscloud/hk/3"}
+
+<section class="et-slide">
+{include file="fscloud/faq/faq"}
+</section>
+</main>
+
+{include file="common/footer"}

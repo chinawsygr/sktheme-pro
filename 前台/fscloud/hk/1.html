@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css"
+      href="{$css}/static/css/about.css"/>
+<section class="et-slide container_bg1">
+        <div class="comp_container comp_container_auto ">
+            <div class="advantage-Content">
+                <div class="currency-title ">
+                    <h2 class="currency-title-a">
+                        产品优势</h2>
+                    <p class="currency-title-a-content">
+                        创新技术、高品质产品、卓越服务</p>
+                </div>
+                <div class="advantage-Content-list">
+                                        <div class="advantage-Content-list-item">
+                        <div class="advantage-Content-list-item-icon">
+                            <img src="/themes/web/www/static/picture/remoteL17139319668888.png" alt="弹性扩展，节约成本">
+                        </div>
+                        <div class="advantage-Content-list-item-title">
+                            <h3>弹性扩展，节约成本</h3>
+                        </div>
+                        <div class="advantage-Content-list-item-content">
+                            <p>当网站用户在面对云服务器配置选型的问题时，针对网站用户个性的配置选择需求、同时可临时资源扩展的诉求，支持产品随时随地秒级扩展IT资源，轻松解决配置选型问题，高效便捷，节约成本。</p>
+                        </div>
+                    </div>
+                                        <div class="advantage-Content-list-item">
+                        <div class="advantage-Content-list-item-icon">
+                            <img src="/themes/web/www/static/picture/remoteL17138728714115.png" alt="全景备份">
+                        </div>
+                        <div class="advantage-Content-list-item-title">
+                            <h3>全景备份</h3>
+                        </div>
+                        <div class="advantage-Content-list-item-content">
+                            <p>针对网站用户面临的备份问题，服务推出高效便捷的实时全景备份/全景恢复功能。用户可以自定义备份事件，通过控制台一键备份，使数据安全在得到最大的保证的同时，降低用户备份成本。</p>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+    </section>
+<script>
+    $(document).ready(function () {
+        const currentPath = window.location.pathname;
+        $('.more-Content-item').each(function () {
+            const linkPath = $(this).attr('href');
+            if (currentPath === linkPath) {
+                $(this).addClass('active');
+            }
+        });
+    });
+</script>

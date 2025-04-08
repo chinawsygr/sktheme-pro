@@ -1,0 +1,127 @@
+<link rel="stylesheet" type="text/css" href="/themes/web/www/fscloud/css/faq.css">
+<div class="tl-faqs with-gap">
+        <header class="tpm-section__hd" id="TJYPC-OF2n" data-id="TJYPC-OF2n" style="padding-top: 60px;">
+            <h2 class="tl-anchor tpm-section__title">常见问题</h2>
+        </header>
+        <div style="margin-bottom: 40px;">
+            <div class="tl-tabs tl-tabs--blank">
+                <div class="view-column">
+                    <div class="tl-tabs__bar">
+                        <ul class="tl-tabs__list">
+                            <li class="tl-tabs__item is-active">
+                                <div class="tl-tabs__item-cont is-active">一般常见问题</div>
+                            </li>
+                            <li class="tl-tabs__item">
+                                <div class="tl-tabs__item-cont">计费</div>
+                            </li>
+                            <li class="tl-tabs__item">
+                                <div class="tl-tabs__item-cont">网络</div>
+                            </li>
+                            <li class="tl-tabs__item">
+                                <div class="tl-tabs__item-cont">存储</div>
+                            </li>
+                            <li class="tl-tabs__item">
+                                <div class="tl-tabs__item-cont">地域和可用区</div>
+                            </li>
+                            <li class="tl-tabs__item">
+                                <div class="tl-tabs__item-cont">安全性</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tl-tabs__cont">
+                {include file="fscloud/faq/q1"}
+                {include file="fscloud/faq/q2"}
+                {include file="fscloud/faq/q3"}
+                {include file="fscloud/faq/q4"}
+                {include file="fscloud/faq/q5"}
+                {include file="fscloud/faq/q6"}
+
+                </div>
+            </div>
+        </div>
+        <div id="Q99VXlVql" data-id="Q99VXlVql" style="margin-top: 40px; padding-bottom: 60px;">
+            <div class="view-column" style="text-align: center;">
+                <div class="tpm-rich-text">
+                    <p class="ts-p">更多问题可查看 <a class="ts-link" href="/help.html">文档</a> ，也可在 <a class="ts-link" href="/contact.html">联系我们</a> 。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化所有FAQ项为关闭状态
+            document.querySelectorAll('.tpm-faq__item').forEach(item => {
+                item.classList.remove('is-open');
+            });
+            
+            document.querySelectorAll('.tpm-faq__item-hd').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.closest('.tpm-faq__item');
+                    const allItems = document.querySelectorAll('.tpm-faq__item');
+                    
+                    // 如果当前项已经打开，则关闭它
+                    if (item.classList.contains('is-open')) {
+                        item.classList.remove('is-open');
+                    } else {
+                        // 先关闭所有打开的项
+                        allItems.forEach(el => {
+                            el.classList.remove('is-open');
+                        });
+                        // 然后打开当前项
+                        item.classList.add('is-open');
+                    }
+                });
+            });
+
+            // 标签切换功能
+            // 初始化标签页，默认显示第一个
+            const panels = document.querySelectorAll('.tl-tabs__panel');
+            panels[0].classList.add('is-active');
+            panels[0].classList.add('fade-in');
+            panels.forEach((panel, index) => {
+                if (index !== 0) {
+                    panel.style.display = 'none';
+                } else {
+                    panel.style.display = 'block';
+                }
+            });
+            
+            // 为所有标签添加点击事件
+            document.querySelectorAll('.tl-tabs__item').forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    // 更新标签状态
+                    document.querySelectorAll('.tl-tabs__item-cont').forEach(cont => {
+                        cont.classList.remove('is-active');
+                    });
+                    tab.querySelector('.tl-tabs__item-cont').classList.add('is-active');
+                    
+                    document.querySelectorAll('.tl-tabs__item').forEach(item => {
+                        item.classList.remove('is-active');
+                    });
+                    tab.classList.add('is-active');
+                    
+                    // 切换面板
+                    const panels = document.querySelectorAll('.tl-tabs__panel');
+                    
+                    // 应用动画
+                    panels.forEach((panel, panelIndex) => {
+                        if (panelIndex === index) {
+                            // 先隐藏当前要显示的面板，以便后续动画效果
+                            panel.style.display = 'block';
+                            panel.classList.remove('fade-in');
+                            
+                            // 通过setTimeout实现重绘，以便动画生效
+                            setTimeout(() => {
+                                panel.classList.add('fade-in');
+                            }, 10);
+                        } else {
+                            panel.classList.remove('fade-in');
+                            panel.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
