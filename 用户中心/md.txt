@@ -1,0 +1,3 @@
+{include file="fscloud/agreement"}
+{include file="fscloud/pc-help"}
+{include file="fscloud/m-help"}
